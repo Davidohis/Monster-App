@@ -1,6 +1,7 @@
 import React from "react";
 import CardList from "../components/card-list";
 import "../components/Card.style.css";
+import ErrorBoundary from './ErrorBoundary';
 
 import Scroll from "../components/scroll";
 import SearchBox from "../components/search-box";
@@ -38,7 +39,9 @@ class Monster extends React.Component {
           <h1>RobotFriends</h1>
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>
-            <CardList monsters={filterBox} />
+            <ErrorBoundary>
+              <CardList monsters={filterBox} />
+            </ErrorBoundary>
           </Scroll>
         </div>
       );

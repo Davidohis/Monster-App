@@ -20,8 +20,7 @@ p {
 h1 {
     font-family: 'SEGA LOGO FONT';
     color: #09e2db;
-    text-transform: capitalize;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 input[type='search'] {
