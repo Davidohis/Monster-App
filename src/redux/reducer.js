@@ -2,6 +2,6 @@ const intialState = {
     searchField: ''
 }
 
-export const searchRobots = (sate=intialState, action={} => {
-    
+export const searchRobots = (sate=intialState, action={}) => {
+
 }
