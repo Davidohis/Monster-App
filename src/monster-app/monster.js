@@ -10,7 +10,7 @@ import {setSearchField} from '../redux/action';
 
 const mapStateTopProps = (state) => {
     return {
-        searchfield: state.searchRobots.searchField
+        searchField: state.searchField
     }
 }
 
@@ -25,8 +25,7 @@ class Monster extends React.Component {
     super();
 
     this.state = {
-      monsters: [],
-      searchfield: "",
+      monsters: []
     };
   }
  
@@ -36,14 +35,12 @@ class Monster extends React.Component {
       .then((users) => this.setState({ monsters: users }));
   }
 
-  onSearchChange = (event) => {
-    return this.setState({ searchfield: event.target.value });
-  };
-
+ 
   render() {
-    const { monsters, searchfield } = this.state;
+    const { monsters } = this.state;
+    const { searchField, onSearchChange } = this.props;
     const filterBox = monsters.filter((robots) => {
-      return robots.name.toLowerCase().includes(searchfield.toLowerCase());
+      return robots.name.toLowerCase().includes(searchField.toLowerCase());
     });
     if (monsters.length === 0) {
       return <h1 className="tc">Loading App</h1>;
@@ -51,7 +48,7 @@ class Monster extends React.Component {
       return (
         <div className="tc">
           <h1>RobotFriends</h1>
-          <SearchBox searchChange={this.onSearchChange} />
+          <SearchBox searchChange={onSearchChange} />
           <Scroll>
             <ErrorBoundary>
               <CardList monsters={filterBox} />
