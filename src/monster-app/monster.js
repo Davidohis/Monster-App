@@ -5,6 +5,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 import Scroll from "../components/scroll";
 import SearchBox from "../components/search-box";
+import { connect } from "react-redux";
 
 class Monster extends React.Component {
   constructor() {
@@ -49,4 +50,4 @@ class Monster extends React.Component {
   }
 }
 
-export default Monster;
+export default connect(mapStateTopProps, mapDispatchToProps)(Monster);
