@@ -1,11 +1,24 @@
 import React from "react";
+import ErrorBoundary from './ErrorBoundary';
+import { connect } from "react-redux";
 import CardList from "../components/card-list";
 import "../components/Card.style.css";
-import ErrorBoundary from './ErrorBoundary';
-
 import Scroll from "../components/scroll";
 import SearchBox from "../components/search-box";
-import { connect } from "react-redux";
+
+import {setSearchField} from '../redux/action';
+
+const mapStateTopProps = (state) => {
+    return {
+        searchfield: state.searchRobots.searchField
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+  }
+}
 
 class Monster extends React.Component {
   constructor() {
