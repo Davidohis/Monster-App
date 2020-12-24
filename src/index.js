@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Provider} from 'react-redux';
-import  { createStore, applyMiddleware } from 'redux';
-import { searchRobots } from './redux/reducer';
-import { createLogger} from 'redux-logger';
+import  { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createLogger } from 'redux-logger';
+
+import { searchRobots, requestRobots } from './redux/reducer';
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+const rootReducer = combineReducers({ searchRobots, requestRobots })
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>

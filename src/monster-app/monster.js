@@ -10,7 +10,7 @@ import {setSearchField} from '../redux/action';
 
 const mapStateTopProps = (state) => {
     return {
-        searchField: state.searchField
+        searchField: state.searchRobots.searchField
     }
 }
 
