@@ -6,46 +6,38 @@ import "../components/Card.style.css";
 import Scroll from "../components/scroll";
 import SearchBox from "../components/search-box";
 
-import {setSearchField} from '../redux/action';
+import { setSearchField, requestRobots } from '../redux/action';
 
 const mapStateTopProps = (state) => {
     return {
-        searchField: state.searchRobots.searchField
+        searchField: state.searchRobots.searchField,
+        isPendding: state.requestRobots.isPendding,
+        robots: state.requestRobots.robots,
+        error: state.requestRobots.error
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+      onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+      onRequestRobots: () => dispatch(requestRobots())
   }
 }
 
 class Monster extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      monsters: []
-    };
-  }
  
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => this.setState({ monsters: users }));
+     this.props.onRequestRobots();
   }
-
  
   render() {
-    const { monsters } = this.state;
-    const { searchField, onSearchChange } = this.props;
-    const filterBox = monsters.filter((robots) => {
-      return robots.name.toLowerCase().includes(searchField.toLowerCase());
+    const { searchField, onSearchChange, robots, isPendding } = this.props;
+    const filterBox = robots.filter((robot) => {
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
-    if (monsters.length === 0) {
-      return <h1 className="tc">Loading App</h1>;
-    } else {
-      return (
+    return isPendding ?
+    <h1 className="tc">Loading App</h1> :
+     (
         <div className="tc">
           <h1>RobotFriends</h1>
           <SearchBox searchChange={onSearchChange} />
@@ -56,7 +48,6 @@ class Monster extends React.Component {
           </Scroll>
         </div>
       );
-    }
   }
 }
 
