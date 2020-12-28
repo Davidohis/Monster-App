@@ -6,7 +6,7 @@ import "../components/Card.style.css";
 import Scroll from "../components/scroll";
 import SearchBox from "../components/search-box";
 
-import { setSearchField, requestRobots } from '../redux/action';
+import { setSearchField, fetchRobots } from '../redux/action';
 
 const mapStateTopProps = (state) => {
     return {
@@ -20,7 +20,7 @@ const mapStateTopProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-      onRequestRobots: () => dispatch(requestRobots())
+      onRequestRobots: () => dispatch(fetchRobots())
   }
 }
 
