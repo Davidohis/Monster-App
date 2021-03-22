@@ -17,16 +17,13 @@ p {
     font-size: 12px;
 }
 
-h1 {
+span {
     font-family: 'SEGA LOGO FONT';
     color: #09e2db;
-    font-size: 40px;
+    font-size: 30px;
 }
 
-input[type='search'] {
-   width: 30%;
-   border-radius: 200px;
-}
+
 /* width */
 ::-webkit-scrollbar {
     width: 20px;

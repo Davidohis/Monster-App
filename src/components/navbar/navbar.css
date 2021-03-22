@@ -1,0 +1,24 @@
+
+.logo {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding-left: 2rem;
+    padding-top: 10px;
+    color:rgba(255, 255, 255, 0.918) !important;
+}
+.logo span {
+    color: rgba(95, 1, 1, 0.685);
+}
+
+.navbar {
+    height: 80px;
+    left: 0;
+    top: 20%;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+}

@@ -3,14 +3,30 @@ import "tachyons";
 
 import Monster from "./monster-app/monster";
 
-const App = () => {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import FooterComponent from './components/footer/footer';
+import NavbarComponent from './components/navbar/navbar';
+import HomePage from './page/HomePage';
 
-    return (
-      <div>
-        <Monster />;
-      </div>
-    );
 
+export default function App() {
+  return (
+    <div className="App">
+    <Router>
+    <NavbarComponent />
+        <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route  path='/robots' component={Monster} />
+        </Switch>
+    </Router>
+    <FooterComponent />
+</div>
+      
+    
+  )
 }
 
-export default App;

@@ -3,7 +3,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { connect } from "react-redux";
 import CardList from "../components/card-list";
 import "../components/Card.style.css";
-import Scroll from "../components/scroll";
+
 import SearchBox from "../components/search-box";
 
 import { setSearchField, fetchRobots } from '../redux/action';
@@ -39,13 +39,12 @@ class Monster extends React.Component {
     <h1 className="tc">Loading App</h1> :
      (
         <div className="tc">
-          <h1>RobotFriends</h1>
           <SearchBox searchChange={onSearchChange} />
-          <Scroll>
+          
             <ErrorBoundary>
               <CardList monsters={filterBox} />
             </ErrorBoundary>
-          </Scroll>
+          
         </div>
       );
   }
