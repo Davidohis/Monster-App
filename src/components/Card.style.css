@@ -37,7 +37,7 @@ span {
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(0, 225, 255); 
+    background: #03635e; 
     border-radius: 10px;
   }
   

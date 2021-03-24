@@ -5,7 +5,7 @@
     linear-gradient(to right bottom, 
     rgba(5, 6, 10, 0.603),
     rgba(0, 0, 0, 0.8)),
-    url('https://i.ibb.co/fDt790x/wp2751453-wallpapers-movies-hd.jpg');
+    url('https://i.ibb.co/LgfTD2y/philipp-katzenberger-LLmqy-Ixc-XCE-unsplash.jpg');
     
   background-size: cover;
     background-position: top;
@@ -51,7 +51,7 @@
     border-radius: 100px;
     transition: all .2s;
     position: relative;
-    background-color: blanchedalmond;
+    background-color:#09e2db;
  }
  
  .btn:hover {
@@ -65,8 +65,8 @@
  }
  
  .btn-white {
-    background-color: #fff;
-    color: #777;
-  font-size: 14px;
+   color: #fff;
+  font-size: 15px;
+  font-weight: 600;
  }
  
